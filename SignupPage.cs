@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Employee_Management_System
 {
@@ -44,7 +45,7 @@ namespace Employee_Management_System
 
         private void btnSignupRegister_Click(object sender, EventArgs e)
         {
-            if (tbUsernameSignup.Text == "" || tbPasswordSignup.Text == "")
+           if (tbUsernameSignup.Text == "" || tbPasswordSignup.Text == "")
             {
                 MessageBox.Show("Please fill in all fields", "Error Message",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
