@@ -31,5 +31,10 @@ namespace Employee_Management_System
         {
 
         }
+
+        private void btnSalaryMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
