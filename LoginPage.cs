@@ -70,7 +70,11 @@ namespace Employee_Management_System
                             {
                                 MessageBox.Show("Login Successful", "Success Message",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               
+                                Main main = new Main();
+                                main.Show();
                                 this.Hide();
+
                             }
                             else
                             {
