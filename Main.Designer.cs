@@ -40,6 +40,7 @@
             btnHomeMain = new Button();
             lblWelcomeMain = new Label();
             pbEmployeeMain = new PictureBox();
+            pnlMainMain = new Panel();
             pnlHeader.SuspendLayout();
             pnlASideMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmployeeMain).BeginInit();
@@ -72,6 +73,7 @@
             // 
             lblExitMain.AutoSize = true;
             lblExitMain.BackColor = SystemColors.Highlight;
+            lblExitMain.Cursor = Cursors.Hand;
             lblExitMain.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblExitMain.ForeColor = SystemColors.ButtonHighlight;
             lblExitMain.Location = new Point(1069, 9);
@@ -122,6 +124,7 @@
             btnLogoutMain.Size = new Size(50, 50);
             btnLogoutMain.TabIndex = 5;
             btnLogoutMain.UseVisualStyleBackColor = true;
+            btnLogoutMain.Click += btnLogoutMain_Click;
             // 
             // btnSalaryMain
             // 
@@ -202,11 +205,20 @@
             pbEmployeeMain.TabIndex = 0;
             pbEmployeeMain.TabStop = false;
             // 
+            // pnlMainMain
+            // 
+            pnlMainMain.Dock = DockStyle.Fill;
+            pnlMainMain.Location = new Point(253, 40);
+            pnlMainMain.Name = "pnlMainMain";
+            pnlMainMain.Size = new Size(847, 710);
+            pnlMainMain.TabIndex = 3;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 750);
+            Controls.Add(pnlMainMain);
             Controls.Add(pnlASideMain);
             Controls.Add(pnlHeader);
             FormBorderStyle = FormBorderStyle.None;
@@ -234,5 +246,6 @@
         private Button btnAddEmployeeMain;
         private Button btnLogoutMain;
         private Label lblSignoutMain;
+        private Panel pnlMainMain;
     }
 }
