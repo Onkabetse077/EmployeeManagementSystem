@@ -33,13 +33,13 @@
             lblEMSMain = new Label();
             lblExitMain = new Label();
             pnlASideMain = new Panel();
+            lblSignoutMain = new Label();
             btnLogoutMain = new Button();
             btnSalaryMain = new Button();
             btnAddEmployeeMain = new Button();
             btnHomeMain = new Button();
             lblWelcomeMain = new Label();
             pbEmployeeMain = new PictureBox();
-            lblSignoutMain = new Label();
             pnlHeader.SuspendLayout();
             pnlASideMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmployeeMain).BeginInit();
@@ -97,6 +97,17 @@
             pnlASideMain.Size = new Size(253, 710);
             pnlASideMain.TabIndex = 2;
             // 
+            // lblSignoutMain
+            // 
+            lblSignoutMain.AutoSize = true;
+            lblSignoutMain.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSignoutMain.ForeColor = SystemColors.ButtonHighlight;
+            lblSignoutMain.Location = new Point(68, 659);
+            lblSignoutMain.Name = "lblSignoutMain";
+            lblSignoutMain.Size = new Size(88, 24);
+            lblSignoutMain.TabIndex = 6;
+            lblSignoutMain.Text = "Signout";
+            // 
             // btnLogoutMain
             // 
             btnLogoutMain.Cursor = Cursors.Hand;
@@ -105,10 +116,10 @@
             btnLogoutMain.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
             btnLogoutMain.FlatStyle = FlatStyle.Flat;
             btnLogoutMain.ForeColor = SystemColors.HotTrack;
-            btnLogoutMain.Image = Properties.Resources.icons8_logout_75__1_;
-            btnLogoutMain.Location = new Point(12, 623);
+            btnLogoutMain.Image = (Image)resources.GetObject("btnLogoutMain.Image");
+            btnLogoutMain.Location = new Point(12, 648);
             btnLogoutMain.Name = "btnLogoutMain";
-            btnLogoutMain.Size = new Size(75, 75);
+            btnLogoutMain.Size = new Size(50, 50);
             btnLogoutMain.TabIndex = 5;
             btnLogoutMain.UseVisualStyleBackColor = true;
             // 
@@ -190,17 +201,6 @@
             pbEmployeeMain.Size = new Size(125, 125);
             pbEmployeeMain.TabIndex = 0;
             pbEmployeeMain.TabStop = false;
-            // 
-            // lblSignoutMain
-            // 
-            lblSignoutMain.AutoSize = true;
-            lblSignoutMain.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSignoutMain.ForeColor = SystemColors.ButtonHighlight;
-            lblSignoutMain.Location = new Point(93, 646);
-            lblSignoutMain.Name = "lblSignoutMain";
-            lblSignoutMain.Size = new Size(88, 24);
-            lblSignoutMain.TabIndex = 6;
-            lblSignoutMain.Text = "Signout";
             // 
             // Main
             // 
