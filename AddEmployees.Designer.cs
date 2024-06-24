@@ -74,6 +74,7 @@
             dgvEmployeesData.RowHeadersWidth = 51;
             dgvEmployeesData.Size = new Size(730, 227);
             dgvEmployeesData.TabIndex = 1;
+            dgvEmployeesData.CellContentClick += dgvEmployeesData_CellContentClick;
             // 
             // lblEmployeesData
             // 
@@ -119,7 +120,6 @@
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(125, 28);
             cbStatus.TabIndex = 17;
-            cbStatus.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // lblStatus
             // 
@@ -215,6 +215,7 @@
             btnImport.TabIndex = 11;
             btnImport.Text = "Import";
             btnImport.UseVisualStyleBackColor = false;
+            btnImport.Click += btnImport_Click;
             // 
             // pbAddEmployees
             // 
@@ -222,18 +223,18 @@
             pbAddEmployees.Location = new Point(645, 26);
             pbAddEmployees.Name = "pbAddEmployees";
             pbAddEmployees.Size = new Size(115, 125);
+            pbAddEmployees.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAddEmployees.TabIndex = 10;
             pbAddEmployees.TabStop = false;
             // 
             // cbPosition
             // 
             cbPosition.FormattingEnabled = true;
-            cbPosition.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            cbPosition.Items.AddRange(new object[] { "Chief Technical Officer (CTO)", "Technical Architect", "Technical Lead/Team Lead", "Senior Software Developer", "Software Developer", "Junior Software Developer", "Software Developer Intern" });
             cbPosition.Location = new Point(465, 80);
             cbPosition.Name = "cbPosition";
             cbPosition.Size = new Size(125, 28);
             cbPosition.TabIndex = 9;
-            cbPosition.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // lblPosition
             // 
@@ -281,7 +282,6 @@
             lblGender.Size = new Size(69, 21);
             lblGender.TabIndex = 4;
             lblGender.Text = "Gender:";
-            lblGender.Click += lblGender_Click;
             // 
             // tbFullNames
             // 
@@ -300,7 +300,6 @@
             lblFullNames.Size = new Size(98, 21);
             lblFullNames.TabIndex = 2;
             lblFullNames.Text = "Full Names:";
-            lblFullNames.Click += lblFullNames_Click;
             // 
             // tbEmployeeID
             // 

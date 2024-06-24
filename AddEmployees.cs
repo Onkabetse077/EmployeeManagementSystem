@@ -28,30 +28,11 @@ namespace Employee_Management_System
         public void displayEmployeeData()
         {
             EmployeesData employeeData = new EmployeesData();
-            List<EmployeesData> employeesList = employeeData.employeesListData();
+            List<EmployeesData> employeeList = employeeData.employeesListData();
 
-            dgvEmployeesData.DataSource = employeesList;
-        }   
-
-        private void lblGender_Click(object sender, EventArgs e)
-        {
-
+            dgvEmployeesData.DataSource = employeeList;
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFullNames_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -69,10 +50,11 @@ namespace Employee_Management_System
                     {
                         connection.Open();
 
-                        string checkEmployeeID = "SELECT * FROM Employees WHERE employee_id = @employee_id";
+                        string checkEmployeeID = "SELECT COUNT(*) FROM Employee WHERE employee_id = @employee_id";
 
-                        using (SqlCommand checkEmployeeIDs= new SqlCommand(checkEmployeeID, connection))
+                        using (SqlCommand checkEmployeeIDs = new SqlCommand(checkEmployeeID, connection))
                         {
+                            checkEmployeeIDs.Parameters.AddWithValue("@employee_id", tbEmployeeID.Text.Trim());
                             int count = (int)checkEmployeeIDs.ExecuteScalar();
 
                             if (count >= 1)
@@ -80,24 +62,25 @@ namespace Employee_Management_System
 
                                 MessageBox.Show(lblEmployeeID.Text.Trim() + " Employee ID already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                            else { 
-                                string insertData = "INSERT INTO Employees(employee_id, full_name,gender,phone_number," +
-                                    "position,image,insert_date,status) VALUES(@employee_id, @full_name, @gender, " +
-                                    "@phone_number, @position, @image,insert_date ,@status)";
+                            else
+                            {
+                                string insertData = "INSERT INTO Employee(employee_id, full_name,gender,phone_number," +
+                                    "position,image,salary,insert_date,status) VALUES(@employee_id, @full_name, @gender, " +
+                                    "@phone_number, @position, @image,@salary,@insert_date ,@status)";
 
-                                string path = Path.Combine(@"C:\Users\Onkabetse\Documents\Projects\Visual Studio\C#\Employee Management System\Pictures\" 
+                                string path = Path.Combine(@"C:\Users\Onkabetse\Documents\Projects\Visual Studio\C#\Employee Management System\Pictures\"
                                                             + tbEmployeeID.Text.Trim() + ".jpg");
 
                                 string picturePath = Path.GetDirectoryName(path);
 
-                                if(!Directory.Exists(picturePath))
+                                if (!Directory.Exists(picturePath))
                                 {
                                     Directory.CreateDirectory(picturePath);
                                 }
 
                                 File.Copy(pbAddEmployees.ImageLocation, path, true);
-                                
-                                using(SqlCommand cmd = new SqlCommand(insertData, connection))
+
+                                using (SqlCommand cmd = new SqlCommand(insertData, connection))
                                 {
                                     cmd.Parameters.AddWithValue("@employee_id", tbEmployeeID.Text.Trim());
                                     cmd.Parameters.AddWithValue("@full_name", tbFullNames.Text.Trim());
@@ -105,34 +88,85 @@ namespace Employee_Management_System
                                     cmd.Parameters.AddWithValue("@phone_number", tbPhoneNumbers.Text.Trim());
                                     cmd.Parameters.AddWithValue("@position", cbPosition.Text.Trim());
                                     cmd.Parameters.AddWithValue("@image", path);
+                                    cmd.Parameters.AddWithValue("@salary", 0);
                                     cmd.Parameters.AddWithValue("@insert_date", DateTime.Today);
                                     cmd.Parameters.AddWithValue("@status", cbStatus.Text.Trim());
 
                                     cmd.ExecuteNonQuery();
 
+                                    displayEmployeeData();
+                                    displayEmployeeData();
+
                                     MessageBox.Show("Employee added successfully", "Success",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);    
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                                 }
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
-                       connection.Close();
+                        connection.Close();
                     }
                 }
-                
+
             }
-            
+
         }
-        
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbAddEmployees.Image = Image.FromFile(dialog.FileName);
+                    pbAddEmployees.ImageLocation = dialog.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void dgvEmployeesData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dgvEmployeesData.Rows[e.RowIndex];
+                tbEmployeeID.Text = row.Cells[1].Value.ToString();
+                tbFullNames.Text = row.Cells[2].Value.ToString();
+                cbGender.Text = row.Cells[3].Value.ToString();
+                tbPhoneNumbers.Text = row.Cells[4].Value.ToString();
+                cbPosition.Text = row.Cells[5].Value.ToString();
+                pbAddEmployees.ImageLocation = row.Cells[6].Value.ToString();
+                if(pbAddEmployees.ImageLocation != null)
+                {
+                    pbAddEmployees.Image = Image.FromFile(pbAddEmployees.ImageLocation);
+                }
+                else
+                {
+
+                   pbAddEmployees.Image = null;
+                }
+
+                cbStatus.Text = row.Cells[8].Value.ToString();
+
+            }
+        }
     }
-    
+
 }
 

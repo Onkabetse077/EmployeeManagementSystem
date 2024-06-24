@@ -71,7 +71,6 @@
             lblEMSMain.Size = new Size(377, 28);
             lblEMSMain.TabIndex = 1;
             lblEMSMain.Text = "Employee Management System";
-            lblEMSMain.Click += label1_Click;
             // 
             // lblExitMain
             // 
@@ -200,7 +199,6 @@
             lblWelcomeMain.Size = new Size(124, 29);
             lblWelcomeMain.TabIndex = 1;
             lblWelcomeMain.Text = "Welcome";
-            lblWelcomeMain.Click += label1_Click_1;
             // 
             // pbEmployeeMain
             // 
@@ -221,7 +219,6 @@
             pnlMainMain.Name = "pnlMainMain";
             pnlMainMain.Size = new Size(847, 710);
             pnlMainMain.TabIndex = 3;
-            pnlMainMain.Paint += pnlMainMain_Paint;
             // 
             // addEmployees1
             // 

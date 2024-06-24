@@ -48,7 +48,7 @@ namespace Employee_Management_System
 
                     connection.Open();
                     
-                    string selectData = "SELECT * FROM Employees WHERE delete_date IS NULL";
+                    string selectData = "SELECT * FROM Employee WHERE delete_date IS NULL";
 
                     using (SqlCommand cmd = new SqlCommand(selectData, connection))
                     {
@@ -67,7 +67,7 @@ namespace Employee_Management_System
                             employeesData.Position = reader["position"].ToString();
                             employeesData.Image = reader["image"].ToString();
                             employeesData.Salary = Convert.ToInt32(reader["salary"]);
-                            employeesData.Status = reader["tatus"].ToString();
+                            employeesData.Status = reader["status"].ToString();
 
                             employeesList.Add(employeesData);
 
