@@ -16,5 +16,20 @@ namespace Employee_Management_System
         {
             InitializeComponent();
         }
+
+        private void lblGender_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFullNames_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
