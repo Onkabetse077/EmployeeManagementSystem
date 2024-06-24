@@ -32,19 +32,43 @@ namespace Employee_Management_System
 
         }
 
-        private void btnSalaryMain_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnLogoutMain_Click(object sender, EventArgs e)
         {
+            DialogResult check = MessageBox.Show("Are you sure you want to logout?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (check == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginPage login = new LoginPage();
+                login.Show();
+            }
         }
 
         private void pnlMainMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnHomeMain_Click(object sender, EventArgs e)
+        {
+            dashBoard1.Visible = true;
+            addEmployees1.Visible = false;
+            salary1.Visible = false;
+        }
+
+        private void btnAddEmployeeMain_Click(object sender, EventArgs e)
+        {
+            dashBoard1.Visible = false;
+            addEmployees1.Visible = true;
+            salary1.Visible = false;
+        }
+        private void btnSalaryMain_Click(object sender, EventArgs e)
+        {
+            dashBoard1.Visible = false;
+            addEmployees1.Visible = false;
+            salary1.Visible = true;
         }
     }
 }

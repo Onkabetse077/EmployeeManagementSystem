@@ -171,7 +171,6 @@
             lblSalarySalary.Size = new Size(57, 18);
             lblSalarySalary.TabIndex = 7;
             lblSalarySalary.Text = "Salary";
-            lblSalarySalary.Click += this.label1_Click_1;
             // 
             // btnUpdateSalary
             // 
