@@ -29,40 +29,59 @@
         private void InitializeComponent()
         {
             pnlAddEmployees = new Panel();
-            pnlAddEmployees2 = new Panel();
+            dgvEmployeesData = new DataGridView();
             lblEmployeesData = new Label();
-            dataGridView1 = new DataGridView();
-            lblEmployeeID = new Label();
-            tbEmployeeID = new TextBox();
-            tbFullNames = new TextBox();
-            lblFullNames = new Label();
-            lblGender = new Label();
-            cbGender = new ComboBox();
-            tbPhoneNumbers = new TextBox();
-            lblPhoneNumbers = new Label();
-            comboBox2 = new ComboBox();
-            label1 = new Label();
-            pbAddEmployees = new PictureBox();
-            btnImport = new Button();
-            btnAdd = new Button();
-            button1 = new Button();
+            pnlAddEmployees2 = new Panel();
             button2 = new Button();
             button3 = new Button();
+            button1 = new Button();
+            btnAdd = new Button();
+            btnImport = new Button();
+            pbAddEmployees = new PictureBox();
+            comboBox2 = new ComboBox();
+            label1 = new Label();
+            tbPhoneNumbers = new TextBox();
+            lblPhoneNumbers = new Label();
+            cbGender = new ComboBox();
+            lblGender = new Label();
+            tbFullNames = new TextBox();
+            lblFullNames = new Label();
+            tbEmployeeID = new TextBox();
+            lblEmployeeID = new Label();
             pnlAddEmployees.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployeesData).BeginInit();
             pnlAddEmployees2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbAddEmployees).BeginInit();
             SuspendLayout();
             // 
             // pnlAddEmployees
             // 
             pnlAddEmployees.BackColor = SystemColors.ButtonHighlight;
-            pnlAddEmployees.Controls.Add(dataGridView1);
+            pnlAddEmployees.Controls.Add(dgvEmployeesData);
             pnlAddEmployees.Controls.Add(lblEmployeesData);
             pnlAddEmployees.Location = new Point(26, 22);
             pnlAddEmployees.Name = "pnlAddEmployees";
             pnlAddEmployees.Size = new Size(789, 323);
             pnlAddEmployees.TabIndex = 0;
+            // 
+            // dgvEmployeesData
+            // 
+            dgvEmployeesData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEmployeesData.Location = new Point(30, 67);
+            dgvEmployeesData.Name = "dgvEmployeesData";
+            dgvEmployeesData.RowHeadersWidth = 51;
+            dgvEmployeesData.Size = new Size(730, 227);
+            dgvEmployeesData.TabIndex = 1;
+            // 
+            // lblEmployeesData
+            // 
+            lblEmployeesData.AutoSize = true;
+            lblEmployeesData.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmployeesData.Location = new Point(30, 22);
+            lblEmployeesData.Name = "lblEmployeesData";
+            lblEmployeesData.Size = new Size(204, 28);
+            lblEmployeesData.TabIndex = 0;
+            lblEmployeesData.Text = "Employee's Data";
             // 
             // pnlAddEmployees2
             // 
@@ -87,178 +106,6 @@
             pnlAddEmployees2.Name = "pnlAddEmployees2";
             pnlAddEmployees2.Size = new Size(789, 305);
             pnlAddEmployees2.TabIndex = 1;
-            // 
-            // lblEmployeesData
-            // 
-            lblEmployeesData.AutoSize = true;
-            lblEmployeesData.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmployeesData.Location = new Point(30, 22);
-            lblEmployeesData.Name = "lblEmployeesData";
-            lblEmployeesData.Size = new Size(204, 28);
-            lblEmployeesData.TabIndex = 0;
-            lblEmployeesData.Text = "Employee's Data";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 67);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(730, 227);
-            dataGridView1.TabIndex = 1;
-            // 
-            // lblEmployeeID
-            // 
-            lblEmployeeID.AutoSize = true;
-            lblEmployeeID.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmployeeID.Location = new Point(19, 43);
-            lblEmployeeID.Name = "lblEmployeeID";
-            lblEmployeeID.Size = new Size(111, 21);
-            lblEmployeeID.TabIndex = 0;
-            lblEmployeeID.Text = "Employee ID:";
-            // 
-            // tbEmployeeID
-            // 
-            tbEmployeeID.BorderStyle = BorderStyle.FixedSingle;
-            tbEmployeeID.Location = new Point(149, 37);
-            tbEmployeeID.Name = "tbEmployeeID";
-            tbEmployeeID.Size = new Size(135, 27);
-            tbEmployeeID.TabIndex = 1;
-            // 
-            // tbFullNames
-            // 
-            tbFullNames.BorderStyle = BorderStyle.FixedSingle;
-            tbFullNames.Location = new Point(149, 82);
-            tbFullNames.Name = "tbFullNames";
-            tbFullNames.Size = new Size(196, 27);
-            tbFullNames.TabIndex = 3;
-            // 
-            // lblFullNames
-            // 
-            lblFullNames.AutoSize = true;
-            lblFullNames.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFullNames.Location = new Point(32, 88);
-            lblFullNames.Name = "lblFullNames";
-            lblFullNames.Size = new Size(98, 21);
-            lblFullNames.TabIndex = 2;
-            lblFullNames.Text = "Full Names:";
-            lblFullNames.Click += lblFullNames_Click;
-            // 
-            // lblGender
-            // 
-            lblGender.AutoSize = true;
-            lblGender.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblGender.Location = new Point(61, 141);
-            lblGender.Name = "lblGender";
-            lblGender.Size = new Size(69, 21);
-            lblGender.TabIndex = 4;
-            lblGender.Text = "Gender:";
-            lblGender.Click += lblGender_Click;
-            // 
-            // cbGender
-            // 
-            cbGender.FormattingEnabled = true;
-            cbGender.Items.AddRange(new object[] { "Male", "Female", "Others" });
-            cbGender.Location = new Point(149, 134);
-            cbGender.Name = "cbGender";
-            cbGender.Size = new Size(196, 28);
-            cbGender.TabIndex = 5;
-            // 
-            // tbPhoneNumbers
-            // 
-            tbPhoneNumbers.BorderStyle = BorderStyle.FixedSingle;
-            tbPhoneNumbers.Location = new Point(465, 31);
-            tbPhoneNumbers.Name = "tbPhoneNumbers";
-            tbPhoneNumbers.Size = new Size(141, 27);
-            tbPhoneNumbers.TabIndex = 7;
-            // 
-            // lblPhoneNumbers
-            // 
-            lblPhoneNumbers.AutoSize = true;
-            lblPhoneNumbers.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPhoneNumbers.Location = new Point(327, 37);
-            lblPhoneNumbers.Name = "lblPhoneNumbers";
-            lblPhoneNumbers.Size = new Size(132, 21);
-            lblPhoneNumbers.TabIndex = 6;
-            lblPhoneNumbers.Text = "Phone Numbers:";
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Male", "Female", "Others" });
-            comboBox2.Location = new Point(465, 80);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(125, 28);
-            comboBox2.TabIndex = 9;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(390, 88);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 21);
-            label1.TabIndex = 8;
-            label1.Text = "Gender:";
-            // 
-            // pbAddEmployees
-            // 
-            pbAddEmployees.Location = new Point(645, 26);
-            pbAddEmployees.Name = "pbAddEmployees";
-            pbAddEmployees.Size = new Size(115, 125);
-            pbAddEmployees.TabIndex = 10;
-            pbAddEmployees.TabStop = false;
-            // 
-            // btnImport
-            // 
-            btnImport.BackColor = SystemColors.Highlight;
-            btnImport.FlatAppearance.BorderSize = 0;
-            btnImport.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            btnImport.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            btnImport.FlatStyle = FlatStyle.Flat;
-            btnImport.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnImport.ForeColor = SystemColors.ButtonHighlight;
-            btnImport.Location = new Point(645, 157);
-            btnImport.Name = "btnImport";
-            btnImport.Size = new Size(115, 29);
-            btnImport.TabIndex = 11;
-            btnImport.Text = "Import";
-            btnImport.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = SystemColors.Highlight;
-            btnAdd.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            btnAdd.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(110, 229);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(134, 50);
-            btnAdd.TabIndex = 12;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            button1.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(250, 229);
-            button1.Name = "button1";
-            button1.Size = new Size(134, 50);
-            button1.TabIndex = 13;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -294,6 +141,159 @@
             button3.Text = "Add";
             button3.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.Highlight;
+            button1.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            button1.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(250, 229);
+            button1.Name = "button1";
+            button1.Size = new Size(134, 50);
+            button1.TabIndex = 13;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = SystemColors.Highlight;
+            btnAdd.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            btnAdd.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = SystemColors.ButtonHighlight;
+            btnAdd.Location = new Point(110, 229);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(134, 50);
+            btnAdd.TabIndex = 12;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnImport
+            // 
+            btnImport.BackColor = SystemColors.Highlight;
+            btnImport.FlatAppearance.BorderSize = 0;
+            btnImport.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            btnImport.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            btnImport.FlatStyle = FlatStyle.Flat;
+            btnImport.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnImport.ForeColor = SystemColors.ButtonHighlight;
+            btnImport.Location = new Point(645, 157);
+            btnImport.Name = "btnImport";
+            btnImport.Size = new Size(115, 29);
+            btnImport.TabIndex = 11;
+            btnImport.Text = "Import";
+            btnImport.UseVisualStyleBackColor = false;
+            // 
+            // pbAddEmployees
+            // 
+            pbAddEmployees.Location = new Point(645, 26);
+            pbAddEmployees.Name = "pbAddEmployees";
+            pbAddEmployees.Size = new Size(115, 125);
+            pbAddEmployees.TabIndex = 10;
+            pbAddEmployees.TabStop = false;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            comboBox2.Location = new Point(465, 80);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(125, 28);
+            comboBox2.TabIndex = 9;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(390, 88);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 21);
+            label1.TabIndex = 8;
+            label1.Text = "Gender:";
+            // 
+            // tbPhoneNumbers
+            // 
+            tbPhoneNumbers.BorderStyle = BorderStyle.FixedSingle;
+            tbPhoneNumbers.Location = new Point(465, 31);
+            tbPhoneNumbers.Name = "tbPhoneNumbers";
+            tbPhoneNumbers.Size = new Size(141, 27);
+            tbPhoneNumbers.TabIndex = 7;
+            // 
+            // lblPhoneNumbers
+            // 
+            lblPhoneNumbers.AutoSize = true;
+            lblPhoneNumbers.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPhoneNumbers.Location = new Point(327, 37);
+            lblPhoneNumbers.Name = "lblPhoneNumbers";
+            lblPhoneNumbers.Size = new Size(132, 21);
+            lblPhoneNumbers.TabIndex = 6;
+            lblPhoneNumbers.Text = "Phone Numbers:";
+            // 
+            // cbGender
+            // 
+            cbGender.FormattingEnabled = true;
+            cbGender.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            cbGender.Location = new Point(149, 134);
+            cbGender.Name = "cbGender";
+            cbGender.Size = new Size(196, 28);
+            cbGender.TabIndex = 5;
+            // 
+            // lblGender
+            // 
+            lblGender.AutoSize = true;
+            lblGender.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGender.Location = new Point(61, 141);
+            lblGender.Name = "lblGender";
+            lblGender.Size = new Size(69, 21);
+            lblGender.TabIndex = 4;
+            lblGender.Text = "Gender:";
+            lblGender.Click += lblGender_Click;
+            // 
+            // tbFullNames
+            // 
+            tbFullNames.BorderStyle = BorderStyle.FixedSingle;
+            tbFullNames.Location = new Point(149, 82);
+            tbFullNames.Name = "tbFullNames";
+            tbFullNames.Size = new Size(196, 27);
+            tbFullNames.TabIndex = 3;
+            // 
+            // lblFullNames
+            // 
+            lblFullNames.AutoSize = true;
+            lblFullNames.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFullNames.Location = new Point(32, 88);
+            lblFullNames.Name = "lblFullNames";
+            lblFullNames.Size = new Size(98, 21);
+            lblFullNames.TabIndex = 2;
+            lblFullNames.Text = "Full Names:";
+            lblFullNames.Click += lblFullNames_Click;
+            // 
+            // tbEmployeeID
+            // 
+            tbEmployeeID.BorderStyle = BorderStyle.FixedSingle;
+            tbEmployeeID.Location = new Point(149, 37);
+            tbEmployeeID.Name = "tbEmployeeID";
+            tbEmployeeID.Size = new Size(135, 27);
+            tbEmployeeID.TabIndex = 1;
+            // 
+            // lblEmployeeID
+            // 
+            lblEmployeeID.AutoSize = true;
+            lblEmployeeID.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmployeeID.Location = new Point(19, 43);
+            lblEmployeeID.Name = "lblEmployeeID";
+            lblEmployeeID.Size = new Size(111, 21);
+            lblEmployeeID.TabIndex = 0;
+            lblEmployeeID.Text = "Employee ID:";
+            // 
             // AddEmployees
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -305,9 +305,9 @@
             Size = new Size(847, 710);
             pnlAddEmployees.ResumeLayout(false);
             pnlAddEmployees.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEmployeesData).EndInit();
             pnlAddEmployees2.ResumeLayout(false);
             pnlAddEmployees2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbAddEmployees).EndInit();
             ResumeLayout(false);
         }
@@ -317,7 +317,7 @@
         private Panel pnlAddEmployees;
         private Panel pnlAddEmployees2;
         private Label lblEmployeesData;
-        private DataGridView dataGridView1;
+        private DataGridView dgvEmployeesData;
         private TextBox tbEmployeeID;
         private Label lblEmployeeID;
         private ComboBox cbGender;
