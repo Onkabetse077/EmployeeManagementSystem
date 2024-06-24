@@ -32,14 +32,16 @@
             dgvEmployeesData = new DataGridView();
             lblEmployeesData = new Label();
             pnlAddEmployees2 = new Panel();
-            button2 = new Button();
-            button3 = new Button();
-            button1 = new Button();
+            cbStatus = new ComboBox();
+            lblStatus = new Label();
+            btnClear = new Button();
+            btnDelete = new Button();
+            btnUpdate = new Button();
             btnAdd = new Button();
             btnImport = new Button();
             pbAddEmployees = new PictureBox();
-            comboBox2 = new ComboBox();
-            label1 = new Label();
+            cbPosition = new ComboBox();
+            lblPosition = new Label();
             tbPhoneNumbers = new TextBox();
             lblPhoneNumbers = new Label();
             cbGender = new ComboBox();
@@ -86,14 +88,16 @@
             // pnlAddEmployees2
             // 
             pnlAddEmployees2.BackColor = SystemColors.ButtonHighlight;
-            pnlAddEmployees2.Controls.Add(button2);
-            pnlAddEmployees2.Controls.Add(button3);
-            pnlAddEmployees2.Controls.Add(button1);
+            pnlAddEmployees2.Controls.Add(cbStatus);
+            pnlAddEmployees2.Controls.Add(lblStatus);
+            pnlAddEmployees2.Controls.Add(btnClear);
+            pnlAddEmployees2.Controls.Add(btnDelete);
+            pnlAddEmployees2.Controls.Add(btnUpdate);
             pnlAddEmployees2.Controls.Add(btnAdd);
             pnlAddEmployees2.Controls.Add(btnImport);
             pnlAddEmployees2.Controls.Add(pbAddEmployees);
-            pnlAddEmployees2.Controls.Add(comboBox2);
-            pnlAddEmployees2.Controls.Add(label1);
+            pnlAddEmployees2.Controls.Add(cbPosition);
+            pnlAddEmployees2.Controls.Add(lblPosition);
             pnlAddEmployees2.Controls.Add(tbPhoneNumbers);
             pnlAddEmployees2.Controls.Add(lblPhoneNumbers);
             pnlAddEmployees2.Controls.Add(cbGender);
@@ -107,56 +111,76 @@
             pnlAddEmployees2.Size = new Size(789, 305);
             pnlAddEmployees2.TabIndex = 1;
             // 
-            // button2
+            // cbStatus
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            button2.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(530, 229);
-            button2.Name = "button2";
-            button2.Size = new Size(134, 50);
-            button2.TabIndex = 15;
-            button2.Text = "Add";
-            button2.UseVisualStyleBackColor = false;
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Items.AddRange(new object[] { "Active", "Inactive" });
+            cbStatus.Location = new Point(465, 128);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(125, 28);
+            cbStatus.TabIndex = 17;
+            cbStatus.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // button3
+            // lblStatus
             // 
-            button3.BackColor = SystemColors.Highlight;
-            button3.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            button3.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(390, 229);
-            button3.Name = "button3";
-            button3.Size = new Size(134, 50);
-            button3.TabIndex = 14;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = false;
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblStatus.Location = new Point(390, 136);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(63, 21);
+            lblStatus.TabIndex = 16;
+            lblStatus.Text = "Status:";
             // 
-            // button1
+            // btnClear
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
-            button1.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(250, 229);
-            button1.Name = "button1";
-            button1.Size = new Size(134, 50);
-            button1.TabIndex = 13;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = false;
+            btnClear.BackColor = SystemColors.Highlight;
+            btnClear.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            btnClear.FlatAppearance.BorderSize = 0;
+            btnClear.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            btnClear.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClear.ForeColor = SystemColors.ButtonHighlight;
+            btnClear.Location = new Point(530, 229);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(134, 50);
+            btnClear.TabIndex = 15;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = SystemColors.Highlight;
+            btnDelete.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            btnDelete.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = SystemColors.ButtonHighlight;
+            btnDelete.Location = new Point(390, 229);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(134, 50);
+            btnDelete.TabIndex = 14;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = SystemColors.Highlight;
+            btnUpdate.FlatAppearance.BorderColor = SystemColors.MenuHighlight;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatAppearance.MouseDownBackColor = SystemColors.MenuHighlight;
+            btnUpdate.FlatAppearance.MouseOverBackColor = SystemColors.MenuHighlight;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = SystemColors.ButtonHighlight;
+            btnUpdate.Location = new Point(250, 229);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(134, 50);
+            btnUpdate.TabIndex = 13;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
@@ -174,6 +198,7 @@
             btnAdd.TabIndex = 12;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnImport
             // 
@@ -193,31 +218,32 @@
             // 
             // pbAddEmployees
             // 
+            pbAddEmployees.BackColor = SystemColors.ControlDarkDark;
             pbAddEmployees.Location = new Point(645, 26);
             pbAddEmployees.Name = "pbAddEmployees";
             pbAddEmployees.Size = new Size(115, 125);
             pbAddEmployees.TabIndex = 10;
             pbAddEmployees.TabStop = false;
             // 
-            // comboBox2
+            // cbPosition
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Male", "Female", "Others" });
-            comboBox2.Location = new Point(465, 80);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(125, 28);
-            comboBox2.TabIndex = 9;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            cbPosition.FormattingEnabled = true;
+            cbPosition.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            cbPosition.Location = new Point(465, 80);
+            cbPosition.Name = "cbPosition";
+            cbPosition.Size = new Size(125, 28);
+            cbPosition.TabIndex = 9;
+            cbPosition.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
-            // label1
+            // lblPosition
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(390, 88);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 21);
-            label1.TabIndex = 8;
-            label1.Text = "Gender:";
+            lblPosition.AutoSize = true;
+            lblPosition.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPosition.Location = new Point(390, 88);
+            lblPosition.Name = "lblPosition";
+            lblPosition.Size = new Size(70, 21);
+            lblPosition.TabIndex = 8;
+            lblPosition.Text = "Postion:";
             // 
             // tbPhoneNumbers
             // 
@@ -326,13 +352,15 @@
         private Label lblFullNames;
         private TextBox tbPhoneNumbers;
         private Label lblPhoneNumbers;
-        private ComboBox comboBox2;
-        private Label label1;
+        private ComboBox cbPosition;
+        private Label lblPosition;
         private PictureBox pbAddEmployees;
         private Button btnImport;
         private Button btnAdd;
-        private Button button2;
-        private Button button3;
-        private Button button1;
+        private Button btnClear;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private ComboBox cbStatus;
+        private Label lblStatus;
     }
 }
