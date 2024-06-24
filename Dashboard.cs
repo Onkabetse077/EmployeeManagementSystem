@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Employee_Management_System
 {
-    public partial class Main : Form
+    public partial class DashBoard : UserControl
     {
-        public Main()
+        public DashBoard()
         {
             InitializeComponent();
-        }
-
-        private void lblExitMain_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,17 +22,12 @@ namespace Employee_Management_System
 
         }
 
+        private void pbDashboard3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalaryMain_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLogoutMain_Click(object sender, EventArgs e)
         {
 
         }
