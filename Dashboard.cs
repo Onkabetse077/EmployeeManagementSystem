@@ -7,28 +7,131 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Employee_Management_System
 {
     public partial class DashBoard : UserControl
     {
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Onkabetse\Documents\Projects\Visual Studio\DataBases\Employees\employee.mdf"";Integrated Security=True;Connect Timeout=30");
+
         public DashBoard()
         {
             InitializeComponent();
+
+            displayTotalEmployees();
+            displayActiveEmployees();
+            displayInactiveEmployees();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void displayTotalEmployees()
         {
+          if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    connection.Open();
+
+                    string selectData = "SELECT COUNT(id) FROM Employee WHERE delete_date IS NULL";
+
+                    using(SqlCommand cmd = new SqlCommand(selectData, connection))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            int count = (int)reader[0];
+
+                            lblTotalEmployeesNumber.Text = count.ToString();
+                        }
+                        
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message,"Error Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                finally
+                {
+
+                   connection.Close();
+                }
+          }
 
         }
 
-        private void pbDashboard3_Click(object sender, EventArgs e)
+        public void displayActiveEmployees()
         {
+            if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    connection.Open();
+
+                    string selectData = "SELECT COUNT(id) FROM Employee WHERE status = @status AND delete_date IS NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(selectData, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@status", "Active");
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            int count = (int)reader[0];
+
+                            lblActiveEmployeesNumber.Text = count.ToString();
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+
+                    connection.Close();
+                }
+            }
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        public void displayInactiveEmployees()
         {
+            if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    connection.Open();
+
+                    string selectData = "SELECT COUNT(id) FROM Employee WHERE status = @status AND delete_date IS NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(selectData, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@status", "Inactive");
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            int count = (int)reader[0];
+
+                            lblInactiveEmployeesNumber.Text = count.ToString();
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+
+                    connection.Close();
+                }
+            }
 
         }
     }

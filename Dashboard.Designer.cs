@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             pnlDashboard2 = new Panel();
             pnlDashboard3 = new Panel();
+            lblTotalEmployeesNumber = new Label();
             lblTotalEmployeesMain1 = new Label();
             pbDashboard1 = new PictureBox();
             pnlDashboard4 = new Panel();
+            lblActiveEmployeesNumber = new Label();
+            lblActiveEmployeesMain = new Label();
             pbDashboard2 = new PictureBox();
             pnlDashboard5 = new Panel();
+            lblInactiveEmployeesNumber = new Label();
+            lblInactiveEmployeesMain = new Label();
             pbDashboard3 = new PictureBox();
             pnlDashboar1 = new Panel();
-            lblTotalEmployeesNumber1 = new Label();
-            lblTotalEmployeesNumber2 = new Label();
-            lblActiveEmployeesMain = new Label();
-            lblTotalEmployeesNumber3 = new Label();
-            lblInactiveEmployeesMain = new Label();
             pnlDashboard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDashboard1).BeginInit();
             pnlDashboard4.SuspendLayout();
@@ -63,13 +63,23 @@
             // pnlDashboard3
             // 
             pnlDashboard3.BackColor = SystemColors.Highlight;
-            pnlDashboard3.Controls.Add(lblTotalEmployeesNumber1);
+            pnlDashboard3.Controls.Add(lblTotalEmployeesNumber);
             pnlDashboard3.Controls.Add(lblTotalEmployeesMain1);
             pnlDashboard3.Controls.Add(pbDashboard1);
             pnlDashboard3.Location = new Point(43, 35);
             pnlDashboard3.Name = "pnlDashboard3";
             pnlDashboard3.Size = new Size(212, 145);
             pnlDashboard3.TabIndex = 0;
+            // 
+            // lblTotalEmployeesNumber
+            // 
+            lblTotalEmployeesNumber.AutoSize = true;
+            lblTotalEmployeesNumber.ForeColor = SystemColors.ButtonHighlight;
+            lblTotalEmployeesNumber.Location = new Point(183, 15);
+            lblTotalEmployeesNumber.Name = "lblTotalEmployeesNumber";
+            lblTotalEmployeesNumber.Size = new Size(17, 20);
+            lblTotalEmployeesNumber.TabIndex = 1;
+            lblTotalEmployeesNumber.Text = "0";
             // 
             // lblTotalEmployeesMain1
             // 
@@ -80,7 +90,6 @@
             lblTotalEmployeesMain1.Size = new Size(118, 20);
             lblTotalEmployeesMain1.TabIndex = 0;
             lblTotalEmployeesMain1.Text = "Total Employees";
-            lblTotalEmployeesMain1.Click += label1_Click;
             // 
             // pbDashboard1
             // 
@@ -94,13 +103,33 @@
             // pnlDashboard4
             // 
             pnlDashboard4.BackColor = SystemColors.Highlight;
-            pnlDashboard4.Controls.Add(lblTotalEmployeesNumber2);
+            pnlDashboard4.Controls.Add(lblActiveEmployeesNumber);
             pnlDashboard4.Controls.Add(lblActiveEmployeesMain);
             pnlDashboard4.Controls.Add(pbDashboard2);
             pnlDashboard4.Location = new Point(289, 35);
             pnlDashboard4.Name = "pnlDashboard4";
             pnlDashboard4.Size = new Size(212, 145);
             pnlDashboard4.TabIndex = 1;
+            // 
+            // lblActiveEmployeesNumber
+            // 
+            lblActiveEmployeesNumber.AutoSize = true;
+            lblActiveEmployeesNumber.ForeColor = SystemColors.ButtonHighlight;
+            lblActiveEmployeesNumber.Location = new Point(180, 15);
+            lblActiveEmployeesNumber.Name = "lblActiveEmployeesNumber";
+            lblActiveEmployeesNumber.Size = new Size(17, 20);
+            lblActiveEmployeesNumber.TabIndex = 3;
+            lblActiveEmployeesNumber.Text = "0";
+            // 
+            // lblActiveEmployeesMain
+            // 
+            lblActiveEmployeesMain.AutoSize = true;
+            lblActiveEmployeesMain.ForeColor = SystemColors.ButtonHighlight;
+            lblActiveEmployeesMain.Location = new Point(79, 110);
+            lblActiveEmployeesMain.Name = "lblActiveEmployeesMain";
+            lblActiveEmployeesMain.Size = new Size(126, 20);
+            lblActiveEmployeesMain.TabIndex = 2;
+            lblActiveEmployeesMain.Text = "Active Employees";
             // 
             // pbDashboard2
             // 
@@ -114,13 +143,33 @@
             // pnlDashboard5
             // 
             pnlDashboard5.BackColor = SystemColors.Highlight;
-            pnlDashboard5.Controls.Add(lblTotalEmployeesNumber3);
+            pnlDashboard5.Controls.Add(lblInactiveEmployeesNumber);
             pnlDashboard5.Controls.Add(lblInactiveEmployeesMain);
             pnlDashboard5.Controls.Add(pbDashboard3);
             pnlDashboard5.Location = new Point(538, 35);
             pnlDashboard5.Name = "pnlDashboard5";
             pnlDashboard5.Size = new Size(212, 145);
             pnlDashboard5.TabIndex = 2;
+            // 
+            // lblInactiveEmployeesNumber
+            // 
+            lblInactiveEmployeesNumber.AutoSize = true;
+            lblInactiveEmployeesNumber.ForeColor = SystemColors.ButtonHighlight;
+            lblInactiveEmployeesNumber.Location = new Point(183, 15);
+            lblInactiveEmployeesNumber.Name = "lblInactiveEmployeesNumber";
+            lblInactiveEmployeesNumber.Size = new Size(17, 20);
+            lblInactiveEmployeesNumber.TabIndex = 3;
+            lblInactiveEmployeesNumber.Text = "0";
+            // 
+            // lblInactiveEmployeesMain
+            // 
+            lblInactiveEmployeesMain.AutoSize = true;
+            lblInactiveEmployeesMain.ForeColor = SystemColors.ButtonHighlight;
+            lblInactiveEmployeesMain.Location = new Point(73, 110);
+            lblInactiveEmployeesMain.Name = "lblInactiveEmployeesMain";
+            lblInactiveEmployeesMain.Size = new Size(136, 20);
+            lblInactiveEmployeesMain.TabIndex = 2;
+            lblInactiveEmployeesMain.Text = "Inactive Employees";
             // 
             // pbDashboard3
             // 
@@ -141,57 +190,6 @@
             pnlDashboar1.Name = "pnlDashboar1";
             pnlDashboar1.Size = new Size(785, 214);
             pnlDashboar1.TabIndex = 0;
-            // 
-            // lblTotalEmployeesNumber1
-            // 
-            lblTotalEmployeesNumber1.AutoSize = true;
-            lblTotalEmployeesNumber1.ForeColor = SystemColors.ButtonHighlight;
-            lblTotalEmployeesNumber1.Location = new Point(183, 15);
-            lblTotalEmployeesNumber1.Name = "lblTotalEmployeesNumber1";
-            lblTotalEmployeesNumber1.Size = new Size(17, 20);
-            lblTotalEmployeesNumber1.TabIndex = 1;
-            lblTotalEmployeesNumber1.Text = "0";
-            lblTotalEmployeesNumber1.Click += label1_Click_1;
-            // 
-            // lblTotalEmployeesNumber2
-            // 
-            lblTotalEmployeesNumber2.AutoSize = true;
-            lblTotalEmployeesNumber2.ForeColor = SystemColors.ButtonHighlight;
-            lblTotalEmployeesNumber2.Location = new Point(180, 15);
-            lblTotalEmployeesNumber2.Name = "lblTotalEmployeesNumber2";
-            lblTotalEmployeesNumber2.Size = new Size(17, 20);
-            lblTotalEmployeesNumber2.TabIndex = 3;
-            lblTotalEmployeesNumber2.Text = "0";
-            // 
-            // lblActiveEmployeesMain
-            // 
-            lblActiveEmployeesMain.AutoSize = true;
-            lblActiveEmployeesMain.ForeColor = SystemColors.ButtonHighlight;
-            lblActiveEmployeesMain.Location = new Point(79, 110);
-            lblActiveEmployeesMain.Name = "lblActiveEmployeesMain";
-            lblActiveEmployeesMain.Size = new Size(126, 20);
-            lblActiveEmployeesMain.TabIndex = 2;
-            lblActiveEmployeesMain.Text = "Active Employees";
-            // 
-            // lblTotalEmployeesNumber3
-            // 
-            lblTotalEmployeesNumber3.AutoSize = true;
-            lblTotalEmployeesNumber3.ForeColor = SystemColors.ButtonHighlight;
-            lblTotalEmployeesNumber3.Location = new Point(183, 15);
-            lblTotalEmployeesNumber3.Name = "lblTotalEmployeesNumber3";
-            lblTotalEmployeesNumber3.Size = new Size(17, 20);
-            lblTotalEmployeesNumber3.TabIndex = 3;
-            lblTotalEmployeesNumber3.Text = "0";
-            // 
-            // lblInactiveEmployeesMain
-            // 
-            lblInactiveEmployeesMain.AutoSize = true;
-            lblInactiveEmployeesMain.ForeColor = SystemColors.ButtonHighlight;
-            lblInactiveEmployeesMain.Location = new Point(73, 110);
-            lblInactiveEmployeesMain.Name = "lblInactiveEmployeesMain";
-            lblInactiveEmployeesMain.Size = new Size(136, 20);
-            lblInactiveEmployeesMain.TabIndex = 2;
-            lblInactiveEmployeesMain.Text = "Inactive Employees";
             // 
             // DashBoard
             // 
@@ -224,10 +222,10 @@
         private Panel pnlDashboar1;
         private PictureBox pbDashboard3;
         private Label lblTotalEmployeesMain1;
-        private Label lblTotalEmployeesNumber1;
-        private Label lblTotalEmployeesNumber2;
+        private Label lblTotalEmployeesNumber;
+        private Label lblActiveEmployeesNumber;
         private Label lblActiveEmployeesMain;
-        private Label lblTotalEmployeesNumber3;
+        private Label lblInactiveEmployeesNumber;
         private Label lblInactiveEmployeesMain;
     }
 }
