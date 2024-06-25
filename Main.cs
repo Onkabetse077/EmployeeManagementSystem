@@ -22,18 +22,6 @@ namespace Employee_Management_System
             Application.Exit();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
         private void btnLogoutMain_Click(object sender, EventArgs e)
         {
             DialogResult check = MessageBox.Show("Are you sure you want to logout?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -46,10 +34,6 @@ namespace Employee_Management_System
             }
         }
 
-        private void pnlMainMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnHomeMain_Click(object sender, EventArgs e)
         {
@@ -70,5 +54,7 @@ namespace Employee_Management_System
             addEmployees1.Visible = false;
             salary1.Visible = true;
         }
+
+        
     }
 }

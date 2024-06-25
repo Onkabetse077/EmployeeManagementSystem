@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnlAddEmployees = new Panel();
             dgvEmployeesData = new DataGridView();
             lblEmployeesData = new Label();
@@ -68,12 +70,34 @@
             // 
             // dgvEmployeesData
             // 
+            dgvEmployeesData.AllowUserToAddRows = false;
+            dgvEmployeesData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEmployeesData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEmployeesData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.MenuText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvEmployeesData.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvEmployeesData.EnableHeadersVisualStyles = false;
             dgvEmployeesData.Location = new Point(30, 67);
             dgvEmployeesData.Name = "dgvEmployeesData";
+            dgvEmployeesData.ReadOnly = true;
+            dgvEmployeesData.RowHeadersVisible = false;
             dgvEmployeesData.RowHeadersWidth = 51;
             dgvEmployeesData.Size = new Size(730, 227);
             dgvEmployeesData.TabIndex = 1;
+            dgvEmployeesData.CellContentClick += dgvEmployeesData_CellContentClick;
             // 
             // lblEmployeesData
             // 
@@ -119,7 +143,6 @@
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(125, 28);
             cbStatus.TabIndex = 17;
-            cbStatus.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // lblStatus
             // 
@@ -147,6 +170,7 @@
             btnClear.TabIndex = 15;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -164,6 +188,7 @@
             btnDelete.TabIndex = 14;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
@@ -181,6 +206,7 @@
             btnUpdate.TabIndex = 13;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -215,6 +241,7 @@
             btnImport.TabIndex = 11;
             btnImport.Text = "Import";
             btnImport.UseVisualStyleBackColor = false;
+            btnImport.Click += btnImport_Click;
             // 
             // pbAddEmployees
             // 
@@ -222,18 +249,18 @@
             pbAddEmployees.Location = new Point(645, 26);
             pbAddEmployees.Name = "pbAddEmployees";
             pbAddEmployees.Size = new Size(115, 125);
+            pbAddEmployees.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAddEmployees.TabIndex = 10;
             pbAddEmployees.TabStop = false;
             // 
             // cbPosition
             // 
             cbPosition.FormattingEnabled = true;
-            cbPosition.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            cbPosition.Items.AddRange(new object[] { "Chief Technical Officer (CTO)", "Technical Architect", "Technical Lead/Team Lead", "Senior Software Developer", "Software Developer", "Junior Software Developer", "Software Developer Intern" });
             cbPosition.Location = new Point(465, 80);
             cbPosition.Name = "cbPosition";
             cbPosition.Size = new Size(125, 28);
             cbPosition.TabIndex = 9;
-            cbPosition.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // lblPosition
             // 
@@ -281,7 +308,6 @@
             lblGender.Size = new Size(69, 21);
             lblGender.TabIndex = 4;
             lblGender.Text = "Gender:";
-            lblGender.Click += lblGender_Click;
             // 
             // tbFullNames
             // 
@@ -300,7 +326,6 @@
             lblFullNames.Size = new Size(98, 21);
             lblFullNames.TabIndex = 2;
             lblFullNames.Text = "Full Names:";
-            lblFullNames.Click += lblFullNames_Click;
             // 
             // tbEmployeeID
             // 
