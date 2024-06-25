@@ -127,7 +127,6 @@
             lblLoginAccount.Size = new Size(153, 24);
             lblLoginAccount.TabIndex = 2;
             lblLoginAccount.Text = "Login Account";
-            lblLoginAccount.Click += label2_Click;
             // 
             // lblUsernameLogin
             // 
@@ -146,7 +145,6 @@
             tbUsernameLogin.Name = "tbUsernameLogin";
             tbUsernameLogin.Size = new Size(282, 34);
             tbUsernameLogin.TabIndex = 4;
-            tbUsernameLogin.TextChanged += tbUsername_TextChanged;
             // 
             // tbPasswordLogin
             // 
@@ -213,8 +211,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += LoginPage_Load;
+            Text = "Login";
             pnlLoginPage.ResumeLayout(false);
             pnlLoginPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmployeeLogin).EndInit();

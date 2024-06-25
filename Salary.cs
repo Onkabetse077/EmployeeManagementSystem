@@ -15,19 +15,19 @@ namespace Employee_Management_System
         public Salary()
         {
             InitializeComponent();
+
+            displayData();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void displayData()
         {
+            EmployeesData employeesData = new EmployeesData();
+            List<EmployeesData> employeesList = employeesData.salaryEmployeesListData();
 
+            dgvEmployeesData.DataSource = employeesList;
+            
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
         {
 
         }

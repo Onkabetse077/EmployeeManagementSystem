@@ -23,16 +23,15 @@ namespace Employee_Management_System
     public class EmployeesData
     {
 
-        public int ID { get; set; }
-        public int EmployeeID { get; set; }
-        public string FullNames { get; set; }
-        public string Gender { get; set; }
-        public string PhoneNumbers { get; set; }
-        public string Position { get; set; }
-        public string Image { get; set; }
-        public int Salary { get; set; }
-        public string Status { get; set; }
-        
+        public int ID { set; get; } 
+        public string EmployeeID { set; get; }
+        public string FullNames { set; get; }
+        public string Gender { set; get; }
+        public string PhoneNumbers { set; get; }
+        public string Position { set; get; }
+        public string Image { set; get; }
+        public int Salary { set; get; }
+        public string Status { set; get; }
 
 
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Onkabetse\Documents\Projects\Visual Studio\DataBases\Employees\employee.mdf"";Integrated Security=True;Connect Timeout=30");
@@ -48,7 +47,7 @@ namespace Employee_Management_System
 
                     connection.Open();
                     
-                    string selectData = "SELECT * FROM Employees WHERE delete_date IS NULL";
+                    string selectData = "SELECT * FROM Employee WHERE delete_date IS NULL";
 
                     using (SqlCommand cmd = new SqlCommand(selectData, connection))
                     {
@@ -57,24 +56,71 @@ namespace Employee_Management_System
 
                         while (reader.Read())
                         {
-                            EmployeesData employeesData = new EmployeesData();
+                            EmployeesData employeeData = new EmployeesData();
 
-                            employeesData.ID = Convert.ToInt32(reader["id"]);
-                            employeesData.EmployeeID = Convert.ToInt32(reader["employee_id"]);
-                            employeesData.FullNames = reader["full_name"].ToString();
-                            employeesData.Gender = reader["gender"].ToString();
-                            employeesData.PhoneNumbers = reader["phone_number"].ToString();
-                            employeesData.Position = reader["position"].ToString();
-                            employeesData.Image = reader["image"].ToString();
-                            employeesData.Salary = Convert.ToInt32(reader["salary"]);
-                            employeesData.Status = reader["tatus"].ToString();
+                            employeeData.ID = (int)reader["id"];
+                            employeeData.EmployeeID = reader["employee_id"].ToString();
+                            employeeData.FullNames = reader["full_name"].ToString();
+                            employeeData.Gender = reader["gender"].ToString();
+                            employeeData.PhoneNumbers = reader["phone_number"].ToString();
+                            employeeData.Position = reader["position"].ToString();
+                            employeeData.Image = reader["image"].ToString();
+                            employeeData.Salary = (int)reader["salary"];
+                            employeeData.Status = reader["status"].ToString();
 
-                            employeesList.Add(employeesData);
+                            employeesList.Add(employeeData);
 
                         }
                     }
                 }
                 catch (Exception ex) {
+
+                    Console.WriteLine("Error: " + ex.Message);
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return employeesList;
+        }
+
+        public List<EmployeesData> salaryEmployeesListData()
+        {
+            List<EmployeesData> employeesList = new List<EmployeesData>();
+
+            if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+
+                    connection.Open();
+
+                    string selectData = "SELECT * FROM Employee WHERE delete_date IS NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(selectData, connection))
+                    {
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            EmployeesData employeeData = new EmployeesData();
+
+                            employeeData.EmployeeID = reader["employee_id"].ToString();
+                            employeeData.FullNames = reader["full_name"].ToString();
+                            employeeData.Position = reader["position"].ToString();
+                            employeeData.Salary = (int)reader["salary"];
+                            
+
+                            employeesList.Add(employeeData);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
 
                     Console.WriteLine("Error: " + ex.Message);
 
