@@ -50,7 +50,7 @@ namespace Employee_Management_System
                     {
                         connection.Open();
 
-                        string checkEmployeeID = "SELECT COUNT(*) FROM Employee WHERE employee_id = @employee_id";
+                        string checkEmployeeID = "SELECT COUNT(*) FROM Employee WHERE employee_id = @employee_id AND delete_date IS NULL";
 
                         using (SqlCommand checkEmployeeIDs = new SqlCommand(checkEmployeeID, connection))
                         {
@@ -95,10 +95,10 @@ namespace Employee_Management_System
                                     cmd.ExecuteNonQuery();
 
                                     displayEmployeeData();
-                                    displayEmployeeData();
 
                                     MessageBox.Show("Employee added successfully", "Success",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
 
                                 }
@@ -152,19 +152,24 @@ namespace Employee_Management_System
                 tbPhoneNumbers.Text = row.Cells[4].Value.ToString();
                 cbPosition.Text = row.Cells[5].Value.ToString();
                 pbAddEmployees.ImageLocation = row.Cells[6].Value.ToString();
-                if(pbAddEmployees.ImageLocation != null)
+                if (pbAddEmployees.ImageLocation != null)
                 {
                     pbAddEmployees.Image = Image.FromFile(pbAddEmployees.ImageLocation);
                 }
                 else
                 {
 
-                   pbAddEmployees.Image = null;
+                    pbAddEmployees.Image = null;
                 }
 
                 cbStatus.Text = row.Cells[8].Value.ToString();
 
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
