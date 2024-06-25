@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnlAddEmployees = new Panel();
             dgvEmployeesData = new DataGridView();
             lblEmployeesData = new Label();
@@ -68,9 +70,30 @@
             // 
             // dgvEmployeesData
             // 
+            dgvEmployeesData.AllowUserToAddRows = false;
+            dgvEmployeesData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEmployeesData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEmployeesData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.MenuText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvEmployeesData.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvEmployeesData.EnableHeadersVisualStyles = false;
             dgvEmployeesData.Location = new Point(30, 67);
             dgvEmployeesData.Name = "dgvEmployeesData";
+            dgvEmployeesData.ReadOnly = true;
+            dgvEmployeesData.RowHeadersVisible = false;
             dgvEmployeesData.RowHeadersWidth = 51;
             dgvEmployeesData.Size = new Size(730, 227);
             dgvEmployeesData.TabIndex = 1;
@@ -147,6 +170,7 @@
             btnClear.TabIndex = 15;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -164,6 +188,7 @@
             btnDelete.TabIndex = 14;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 

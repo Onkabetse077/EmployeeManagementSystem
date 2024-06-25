@@ -47,7 +47,7 @@ namespace Employee_Management_System
 
                     connection.Open();
                     
-                    string selectData = "SELECT * FROM Employee";
+                    string selectData = "SELECT * FROM Employee WHERE delete_date IS NULL";
 
                     using (SqlCommand cmd = new SqlCommand(selectData, connection))
                     {
@@ -74,6 +74,53 @@ namespace Employee_Management_System
                     }
                 }
                 catch (Exception ex) {
+
+                    Console.WriteLine("Error: " + ex.Message);
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return employeesList;
+        }
+
+        public List<EmployeesData> salaryEmployeesListData()
+        {
+            List<EmployeesData> employeesList = new List<EmployeesData>();
+
+            if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+
+                    connection.Open();
+
+                    string selectData = "SELECT * FROM Employee WHERE delete_date IS NULL";
+
+                    using (SqlCommand cmd = new SqlCommand(selectData, connection))
+                    {
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            EmployeesData employeeData = new EmployeesData();
+
+                            employeeData.EmployeeID = reader["employee_id"].ToString();
+                            employeeData.FullNames = reader["full_name"].ToString();
+                            employeeData.Position = reader["position"].ToString();
+                            employeeData.Salary = (int)reader["salary"];
+                            
+
+                            employeesList.Add(employeeData);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
 
                     Console.WriteLine("Error: " + ex.Message);
 
