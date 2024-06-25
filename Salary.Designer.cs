@@ -41,11 +41,11 @@
             lblFullNamesSalary = new Label();
             tbEmployeeIDSalary = new TextBox();
             lblEmployeeIDSalary = new Label();
-            panel1 = new Panel();
-            lblEmployeesSalary = new Label();
+            pnlSalary2 = new Panel();
             dgvEmployeesData = new DataGridView();
+            lblEmployeesSalary = new Label();
             pnlSalary.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlSalary2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmployeesData).BeginInit();
             SuspendLayout();
             // 
@@ -83,6 +83,7 @@
             btnClearSalary.TabIndex = 17;
             btnClearSalary.Text = "Clear";
             btnClearSalary.UseVisualStyleBackColor = false;
+            btnClearSalary.Click += btnClearSalary_Click;
             // 
             // btnUpdateSalary
             // 
@@ -178,25 +179,15 @@
             lblEmployeeIDSalary.TabIndex = 0;
             lblEmployeeIDSalary.Text = "Employee ID:";
             // 
-            // panel1
+            // pnlSalary2
             // 
-            panel1.BackColor = SystemColors.ButtonHighlight;
-            panel1.Controls.Add(dgvEmployeesData);
-            panel1.Controls.Add(lblEmployeesSalary);
-            panel1.Location = new Point(343, 21);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(481, 656);
-            panel1.TabIndex = 1;
-            // 
-            // lblEmployeesSalary
-            // 
-            lblEmployeesSalary.AutoSize = true;
-            lblEmployeesSalary.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmployeesSalary.Location = new Point(22, 28);
-            lblEmployeesSalary.Name = "lblEmployeesSalary";
-            lblEmployeesSalary.Size = new Size(136, 28);
-            lblEmployeesSalary.TabIndex = 0;
-            lblEmployeesSalary.Text = "Employees";
+            pnlSalary2.BackColor = SystemColors.ButtonHighlight;
+            pnlSalary2.Controls.Add(dgvEmployeesData);
+            pnlSalary2.Controls.Add(lblEmployeesSalary);
+            pnlSalary2.Location = new Point(343, 21);
+            pnlSalary2.Name = "pnlSalary2";
+            pnlSalary2.Size = new Size(481, 656);
+            pnlSalary2.TabIndex = 1;
             // 
             // dgvEmployeesData
             // 
@@ -227,19 +218,30 @@
             dgvEmployeesData.RowHeadersWidth = 51;
             dgvEmployeesData.Size = new Size(436, 551);
             dgvEmployeesData.TabIndex = 2;
+            dgvEmployeesData.CellClick += dgvEmployeesData_CellClick;
+            // 
+            // lblEmployeesSalary
+            // 
+            lblEmployeesSalary.AutoSize = true;
+            lblEmployeesSalary.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmployeesSalary.Location = new Point(22, 28);
+            lblEmployeesSalary.Name = "lblEmployeesSalary";
+            lblEmployeesSalary.Size = new Size(136, 28);
+            lblEmployeesSalary.TabIndex = 0;
+            lblEmployeesSalary.Text = "Employees";
             // 
             // Salary
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
+            Controls.Add(pnlSalary2);
             Controls.Add(pnlSalary);
             Name = "Salary";
             Size = new Size(847, 710);
             pnlSalary.ResumeLayout(false);
             pnlSalary.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlSalary2.ResumeLayout(false);
+            pnlSalary2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEmployeesData).EndInit();
             ResumeLayout(false);
         }
@@ -247,7 +249,7 @@
         #endregion
 
         private Panel pnlSalary;
-        private Panel panel1;
+        private Panel pnlSalary2;
         private Label lblEmployeesSalary;
         private Label lblEmployeeIDSalary;
         private TextBox tbEmployeeIDSalary;
@@ -260,7 +262,6 @@
         private Button btnUpdateSalary;
         private Button btnAddSalary;
         private Button btnClearSalary;
-        private Button btnDeleteSalary;
         private DataGridView dgvEmployeesData;
     }
 }
