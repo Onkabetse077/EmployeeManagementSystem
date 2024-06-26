@@ -1,0 +1,1 @@
+﻿Select * from employee where delete_date is not null;

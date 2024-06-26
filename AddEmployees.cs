@@ -17,7 +17,7 @@ namespace Employee_Management_System
     public partial class AddEmployees : UserControl
     {
 
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Onkabetse\Documents\Projects\Visual Studio\DataBases\Employees\employee.mdf"";Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Onkabetse\Documents\Projects\Visual Studio\C#\Employee Management System\Database\Employees\employee.mdf"";Integrated Security=True;Connect Timeout=30");
         public AddEmployees()
         {
             InitializeComponent();
