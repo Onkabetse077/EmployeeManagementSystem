@@ -41,9 +41,9 @@
             lblWelcomeMain = new Label();
             pbEmployeeMain = new PictureBox();
             pnlMainMain = new Panel();
-            addEmployees1 = new AddEmployees();
             dashBoard1 = new DashBoard();
             salary1 = new Salary();
+            addEmployees1 = new AddEmployees();
             pnlHeader.SuspendLayout();
             pnlASideMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbEmployeeMain).BeginInit();
@@ -220,13 +220,6 @@
             pnlMainMain.Size = new Size(847, 710);
             pnlMainMain.TabIndex = 3;
             // 
-            // addEmployees1
-            // 
-            addEmployees1.Location = new Point(0, 0);
-            addEmployees1.Name = "addEmployees1";
-            addEmployees1.Size = new Size(1059, 888);
-            addEmployees1.TabIndex = 2;
-            // 
             // dashBoard1
             // 
             dashBoard1.Location = new Point(0, 0);
@@ -240,6 +233,13 @@
             salary1.Name = "salary1";
             salary1.Size = new Size(1059, 888);
             salary1.TabIndex = 0;
+            // 
+            // addEmployees1
+            // 
+            addEmployees1.Location = new Point(0, 0);
+            addEmployees1.Name = "addEmployees1";
+            addEmployees1.Size = new Size(1059, 888);
+            addEmployees1.TabIndex = 2;
             // 
             // Main
             // 
@@ -276,8 +276,8 @@
         private Button btnLogoutMain;
         private Label lblSignoutMain;
         private Panel pnlMainMain;
-        private Salary salary1;
         private AddEmployees addEmployees1;
         private DashBoard dashBoard1;
+        private Salary salary1;
     }
 }

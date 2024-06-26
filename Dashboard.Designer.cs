@@ -43,6 +43,8 @@
             lblInactiveEmployeesMain = new Label();
             pbDashboard3 = new PictureBox();
             pnlDashboar1 = new Panel();
+            pbDashboardPic = new PictureBox();
+            pnlDashboard2.SuspendLayout();
             pnlDashboard3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDashboard1).BeginInit();
             pnlDashboard4.SuspendLayout();
@@ -50,11 +52,13 @@
             pnlDashboard5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDashboard3).BeginInit();
             pnlDashboar1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbDashboardPic).BeginInit();
             SuspendLayout();
             // 
             // pnlDashboard2
             // 
             pnlDashboard2.BackColor = SystemColors.ButtonHighlight;
+            pnlDashboard2.Controls.Add(pbDashboardPic);
             pnlDashboard2.Location = new Point(32, 280);
             pnlDashboard2.Name = "pnlDashboard2";
             pnlDashboard2.Size = new Size(785, 407);
@@ -191,6 +195,17 @@
             pnlDashboar1.Size = new Size(785, 214);
             pnlDashboar1.TabIndex = 0;
             // 
+            // pbDashboardPic
+            // 
+            pbDashboardPic.Dock = DockStyle.Fill;
+            pbDashboardPic.Image = (Image)resources.GetObject("pbDashboardPic.Image");
+            pbDashboardPic.Location = new Point(0, 0);
+            pbDashboardPic.Name = "pbDashboardPic";
+            pbDashboardPic.Size = new Size(785, 407);
+            pbDashboardPic.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbDashboardPic.TabIndex = 0;
+            pbDashboardPic.TabStop = false;
+            // 
             // DashBoard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -199,6 +214,7 @@
             Controls.Add(pnlDashboar1);
             Name = "DashBoard";
             Size = new Size(847, 710);
+            pnlDashboard2.ResumeLayout(false);
             pnlDashboard3.ResumeLayout(false);
             pnlDashboard3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbDashboard1).EndInit();
@@ -209,6 +225,7 @@
             pnlDashboard5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbDashboard3).EndInit();
             pnlDashboar1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbDashboardPic).EndInit();
             ResumeLayout(false);
         }
 
@@ -227,5 +244,6 @@
         private Label lblActiveEmployeesMain;
         private Label lblInactiveEmployeesNumber;
         private Label lblInactiveEmployeesMain;
+        private PictureBox pbDashboardPic;
     }
 }

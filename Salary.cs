@@ -48,6 +48,20 @@ namespace Employee_Management_System
             tbPositonSalary.Text = "";
             tbSalarySalary.Text = "";
         }
+
+        public void RefreshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)RefreshData);
+                return;
+                
+            }
+            displayData();
+            disableFields();
+        }
+
+
         private void btnUpdateSalary_Click(object sender, EventArgs e)
         {
             if (tbEmployeeIDSalary.Text == "" || tbFullNamesSalary.Text == "" || tbPositonSalary.Text == "" || tbSalarySalary.Text == "")
@@ -72,7 +86,7 @@ namespace Employee_Management_System
                             using (SqlCommand cmd = new SqlCommand(updateData, connection))
                             {
                                 cmd.Parameters.AddWithValue("@salary", tbSalarySalary.Text.Trim());
-                                cmd.Parameters.AddWithValue(updateData, DateTime.Today);
+                                cmd.Parameters.AddWithValue("@updateDate", DateTime.Today);
                                 cmd.Parameters.AddWithValue("@employee_id", tbEmployeeIDSalary.Text.Trim());
 
 

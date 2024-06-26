@@ -26,6 +26,17 @@ namespace Employee_Management_System
             displayInactiveEmployees();
         }
 
+        public void RefreshData()
+        {
+            if (InvokeRequired) {
+                Invoke((MethodInvoker)RefreshData);
+                return;
+             }
+            displayTotalEmployees();
+            displayActiveEmployees();
+            displayInactiveEmployees();
+        }
+
         public void displayTotalEmployees()
         {
           if (connection.State != ConnectionState.Open)

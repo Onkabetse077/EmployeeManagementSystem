@@ -25,6 +25,16 @@ namespace Employee_Management_System
             displayEmployeeData();
         }
 
+        public void RefreshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)RefreshData);
+                return;
+                
+            }
+            displayEmployeeData();
+        }
         public void displayEmployeeData()
         {
             EmployeesData employeeData = new EmployeesData();
